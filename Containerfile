@@ -1,4 +1,17 @@
-FROM quay.io/fedora/fedora-bootc:41@sha256:487d415a805c729d7769aaddf88563f26b0e320aefc812f269799cab7b7ad46c
+ARG FEDORA_MAJOR_VERSION="42"
+ARG SOURCE_IMAGE="fedora-bootc"
+
+FROM scratch as ctx
+COPY /build_files /build_files
+
+FROM quay.io/fedora/${SOURCE_IMAGE}:${FEDORA_MAJOR_VERSION}
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/shared/build_base.sh && \
+    ostree container commit
 
 # Make sure that the rootfiles package can be installed
 RUN mkdir -p /var/roothome
@@ -7,34 +20,37 @@ RUN mkdir -p /var/roothome
 RUN dnf install -y \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+	# add ultramarine mirror?
 
-RUN dnf group install -y \
-	base-graphical \
-	container-management \
-	core \
-	firefox \
-	fonts \
-	gnome-desktop \
-	guest-desktop-agents \
-	hardware-support \
-	multimedia \
-	networkmanager-submodules \
-	printing \
-	virtualization \
-	workstation-product \
-	; dnf -y clean all
+RUN build
 
-RUN dnf install -y \
-	bash-completion \
-	bcc-tools \
-	gnome-tweaks \
-	htop \
-	neovim \
-	strace \
-	tmate \
-	tmux \
-	vgrep \
-	; dnf -y clean all
+# RUN dnf group install -y \
+# 	base-graphical \
+# 	container-management \
+# 	core \
+# 	firefox \
+# 	fonts \
+# 	gnome-desktop \
+# 	guest-desktop-agents \
+# 	hardware-support \
+# 	multimedia \
+# 	networkmanager-submodules \
+# 	printing \
+# 	virtualization \
+# 	workstation-product \
+# 	; dnf -y clean all
+
+# RUN dnf install -y \
+# 	bash-completion \
+# 	bcc-tools \
+# 	gnome-tweaks \
+# 	htop \
+# 	neovim \
+# 	strace \
+# 	tmate \
+# 	tmux \
+# 	vgrep \
+# 	; dnf -y clean all
 
 RUN systemctl set-default graphical.target
 
