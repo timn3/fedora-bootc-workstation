@@ -4,6 +4,7 @@ ARG SOURCE_IMAGE="fedora-bootc"
 # ghcr.io/ultramarine-linux/gnome-bootc:latest
 
 FROM scratch as ctx
+COPY /scripts /scripts
 
 FROM quay.io/fedora/${SOURCE_IMAGE}:${FEDORA_MAJOR_VERSION}
 
