@@ -34,12 +34,7 @@ dnf install -y --skip-unavailable \
 	; dnf -y clean all
 
 dnf install -y --skip-unavailable \
-    adobe-source-code-pro-fonts \
-    alacritty \
-    albert \
     bat \ 
-    btop \
-    code \ 
     cpu-x \
     dconf \
     deja-dup \ 
@@ -51,7 +46,6 @@ dnf install -y --skip-unavailable \
     keepassxc \
     neofetch \
     neovim \ 
-    #nvtop \ 
     open-sans-fonts \
     openconnect \
     pinta \
