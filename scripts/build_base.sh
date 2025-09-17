@@ -20,7 +20,7 @@ dnf group install -y \
     --exclude=rootfiles \
 	; dnf -y clean all
 
-dnf install -y \
+dnf install -y --skip-unavailable \
 	bash-completion \
 	bcc-tools \
 	gnome-tweaks \
@@ -30,10 +30,10 @@ dnf install -y \
 	tmate \
 	tmux \
 	vgrep \
-    git \ #necessary? 
+    git \
 	; dnf -y clean all
 
-dnf install -y \
+dnf install -y --skip-unavailable \
     adobe-source-code-pro-fonts \
     alacritty \
     albert \
