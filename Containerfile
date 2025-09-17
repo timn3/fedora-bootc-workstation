@@ -1,10 +1,9 @@
-ARG FEDORA_MAJOR_VERSION="42"
+ARG FEDORA_MAJOR_VERSION="latest"
 ARG SOURCE_IMAGE="fedora-bootc"
 # ultramarine as base
 # ghcr.io/ultramarine-linux/gnome-bootc:latest
 
 FROM scratch as ctx
-# COPY /build_files /build_files
 
 FROM quay.io/fedora/${SOURCE_IMAGE}:${FEDORA_MAJOR_VERSION}
 
