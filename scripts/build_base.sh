@@ -17,6 +17,7 @@ dnf group install -y \
 	virtualization \
 	workstation-product \
     vlc \
+    --exclude=rootfiles \
 	; dnf -y clean all
 
 dnf install -y \
