@@ -2,3 +2,4 @@ additional_rpms/*.rpm
 config.toml
 output/*
 original_configs/*
+fonts/*

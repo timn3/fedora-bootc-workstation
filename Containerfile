@@ -1,5 +1,7 @@
 ARG FEDORA_MAJOR_VERSION="42"
 ARG SOURCE_IMAGE="fedora-bootc"
+# ultramarine as base
+# ghcr.io/ultramarine-linux/gnome-bootc:latest
 
 FROM scratch as ctx
 COPY /build_files /build_files
@@ -10,7 +12,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /ctx/shared/build_base.sh && \
+    /ctx/scripts/build_base.sh && \
     ostree container commit
 
 # Make sure that the rootfiles package can be installed
@@ -23,34 +25,6 @@ RUN dnf install -y \
 	# add ultramarine mirror?
 
 RUN build
-
-# RUN dnf group install -y \
-# 	base-graphical \
-# 	container-management \
-# 	core \
-# 	firefox \
-# 	fonts \
-# 	gnome-desktop \
-# 	guest-desktop-agents \
-# 	hardware-support \
-# 	multimedia \
-# 	networkmanager-submodules \
-# 	printing \
-# 	virtualization \
-# 	workstation-product \
-# 	; dnf -y clean all
-
-# RUN dnf install -y \
-# 	bash-completion \
-# 	bcc-tools \
-# 	gnome-tweaks \
-# 	htop \
-# 	neovim \
-# 	strace \
-# 	tmate \
-# 	tmux \
-# 	vgrep \
-# 	; dnf -y clean all
 
 RUN systemctl set-default graphical.target
 
