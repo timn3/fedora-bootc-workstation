@@ -28,25 +28,20 @@ dnf install -y --skip-unavailable \
 	neovim \
 	strace \
 	tmate \
-	tmux \
 	vgrep \
     git \
 	; dnf -y clean all
 
 dnf install -y --skip-unavailable \
     bat \ 
-    cpu-x \
     dconf \
     deja-dup \ 
-    dejavu-sans-fonts \ 
     fish \ 
     fzf \ 
     gimp \  
     htop \
     keepassxc \
     neofetch \
-    neovim \ 
-    open-sans-fonts \
     openconnect \
     pinta \
     podman \
@@ -55,8 +50,6 @@ dnf install -y --skip-unavailable \
     ripgrep \
     solaar \ 
     syncthing \
-    thefuck \ 
-    thinkfan \
     thunderbird \
     tlp \ 
     tmux \ 
