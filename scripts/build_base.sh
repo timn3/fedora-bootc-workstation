@@ -16,8 +16,8 @@ dnf group install -y \
 	printing \
 	virtualization \
 	workstation-product \
-    vlc \
-    --exclude=rootfiles \
+        vlc \
+        --exclude=rootfiles \
 	; dnf -y clean all
 
 dnf install -y --skip-unavailable \
@@ -29,13 +29,11 @@ dnf install -y --skip-unavailable \
 	strace \
 	tmate \
 	vgrep \
-    git \
+        git \
 	; dnf -y clean all
 
 dnf install -y --skip-unavailable \
     bat \ 
-    dconf \
-    deja-dup \ 
     fish \ 
     fzf \ 
     gimp \  
@@ -57,4 +55,4 @@ dnf install -y --skip-unavailable \
     zerotier-one \
     zoxide \ 
     zsh \
-	; dnf -y clean all
+    ; dnf -y clean all
