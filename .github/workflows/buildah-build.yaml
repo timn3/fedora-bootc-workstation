@@ -16,7 +16,7 @@ jobs:
     - name: Buildah Action
       uses: redhat-actions/buildah-build@v2
       with:
-        image: my-new-image
+        image: tormedOS 
         tags: build
         oci: true
         containerfiles: |
