@@ -32,29 +32,3 @@ dnf install -y --skip-unavailable \
     git \
 	; dnf -y clean all
 
-dnf install -y --skip-unavailable \
-    bat \ 
-    dconf \
-    deja-dup \ 
-    fish \ 
-    fzf \ 
-    gimp \  
-    htop \
-    keepassxc \
-    neofetch \
-    openconnect \
-    pinta \
-    podman \
-    powertop \ 
-    remmina \
-    ripgrep \
-    solaar \ 
-    syncthing \
-    thunderbird \
-    tlp \ 
-    tmux \ 
-    zellij \
-    zerotier-one \
-    zoxide \ 
-    zsh \
-	; dnf -y clean all
