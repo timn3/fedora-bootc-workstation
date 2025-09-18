@@ -24,8 +24,6 @@ RUN dnf install -y \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 	# add ultramarine mirror?
 
-RUN build
-
 RUN systemctl set-default graphical.target
 
 # See https://fedoraproject.org/wiki/Changes/UnprivilegedUpdatesAtomicDesktops:
