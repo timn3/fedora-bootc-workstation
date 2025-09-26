@@ -24,9 +24,9 @@ RUN dnf install -y \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install ultramarine repos
-RUN dnf install -y \
-	https://repos.fyralabs.com/um$(rpm -E %fedora)/ultramarine-repos-0:$(rpm -E %fedora)-1.um$(rpm -E %fedora).noarch.rpm\
-	https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-extras-0:$(rpm -E %fedora)-4.noarch.rpm
+# RUN dnf install -y \
+	# https://repos.fyralabs.com/um$(rpm -E %fedora)/ultramarine-repos-0:$(rpm -E %fedora)-1.um$(rpm -E %fedora).noarch.rpm\
+	# https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-extras-0:$(rpm -E %fedora)-4.noarch.rpm
 # 	https://repos.fyralabs.com/terra$(rpm -E %fedora)-extras \
 # 	https://repos.fyralabs.com/terra$(rpm -E %fedora)-nvidia \
 # 	https://repos.fyralabs.com/um$(rpm -E %fedora) \
